@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To do List</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: 'Trebuchet MS';
+            text-align: center;
+            background-color: white;
+        }
+
+        h1 {
+            color: white;
+            background-color: rgba(119, 38, 165, 0.89);
+            font-family: 'Trebuchet MS';
+            text-align: center;
+            align-items: center;
+        }
+
+        footer {
+            color: white;
+            background-color: rgba(119, 38, 165, 0.89);
+            font-family: 'Trebuchet MS';
+            text-align: right;
+            align-content: flex-end;
+        }
+
+        #qdtarefa {
+            background-color: rgba(216, 189, 235, 0.815);
+            padding: 50px 50px 50px 50px;
+            border: 15px;
+            color: rgba(119, 38, 165, 0.89)
+        }
+
+        #tarefa {
+            color: white;
+            background-color: rgba(119, 38, 165, 0.89);
+            font-family: 'Trebuchet MS';
+
+            align-items: center;
+        }
+
+        button {
+            color: white;
+            background-color: rgba(119, 38, 165, 0.89);
+            font-family: 'Trebuchet MS';
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+    <script type="text/javascript">
+        var incr = 0;
+        function adicionar() {
+            var tar = document.getElementById("tarefa").value;
+            var lista = document.getElementById("lista").innerHTML;
+            incr = incr + 1;
+            lista = "<li ><text id=" + incr + ">" + tar + "</text> <button onclick=\"concluir(" + incr + ",this)\"class=\"botaoConcluir\">X</button></li>" + lista;
+            document.getElementById("lista").innerHTML = lista;
+        }
+
+        function concluir(a, b) {
+            b.disabled = true;
+            b.style.background = "green";
+            var finaltarefa = document.getElementById(a).innerText;
+            var encerra = "<s>" + finaltarefa + "</s>";
+            document.getElementById(a).innerHTML = encerra;
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <h1>Lista de Tarefas</h1>
+    <figure> <img id="super" src="to do.png" alt=""></figure>
+
+    <div id="qdtarefa">
+        Nova Tarefa <input type="text" id="tarefa" />
+        <button onclick="adicionar()">+</button><br>
+
+        <ul id="lista">
+        </ul>
+    </div>
+    <footer>
+        Ana Lucia Cezar de Melo
+    </footer>
+</body>
+
+</html>
